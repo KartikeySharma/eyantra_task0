@@ -10,6 +10,8 @@ project(pkg_task0)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  geometry_msgs
+  message_generation
   std_msgs
 )
 
@@ -68,10 +70,11 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   geometry_msgs
+   std_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -105,7 +108,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pkg_task0
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+   CATKIN_DEPENDS roscpp rospy std_msgs geometry_msgs message_runtime
 #  DEPENDS system_lib
 )
 
